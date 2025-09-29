@@ -5,7 +5,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+/**
+ * Clase principal que demuestra el lanzamiento de múltiples procesos del sistema operativo
+ * (calculadora, bloc de notas y consola de comandos), registrando sus eventos en logs.
+ * <p>
+ * Los logs incluyen marcas de tiempo para el inicio y finalización de cada proceso.
+ *
+ * @author Adrián Guerrero
+ */
 public class Main {
+
+    /**
+     * Metodo principal que gestiona la creación de una carpeta para logs, el
+     * lanzamiento de los procesos y la generación de archivos de registro.
+     *
+     * @param args Argumentos de línea de comandos.
+     */
     public static void main(String[] args) {
 
         // Creación de la carpeta contenedora de los ficheros
@@ -43,6 +58,16 @@ public class Main {
         }
     }
 
+    /**
+     * Metodo auxiliar que lanza un proceso, genera un log con la hora de inicio y finalización,
+     * y lo escribe en el archivo correspondiente.
+     *
+     * @param pb     El {@link ProcessBuilder} configurado con el proceso a ejecutar.
+     * @param file   Archivo donde se escribirá el log.
+     * @param nombre Nombre descriptivo del proceso.
+     * @throws IOException          Si ocurre un error al escribir el archivo.
+     * @throws InterruptedException Si el hilo actual es interrumpido mientras espera el proceso.
+     */
     public static void crearLog(ProcessBuilder pb, File file, String nombre) throws IOException, InterruptedException {
         System.out.printf("Iniciando %s... %n", nombre);
 
